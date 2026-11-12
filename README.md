@@ -469,3 +469,10 @@ This project demonstrates an end-to-end Machine Learning workflow for UPI transa
 Among the four evaluated algorithms, Random Forest achieved the strongest test-set performance, with 97.00% accuracy and a 97.46% F1-score. Its five-fold cross-validation accuracy was 95.66% ± 1.01%.
 
 The project highlights the importance of evaluating models using multiple metrics, validating performance across different data splits and integrating trained ML pipelines into practical applications.
+
+
+
+AUTHOR
+HARSHITA GUPTA 
+BTECH CSE AI IGDTUW
+Harshitaigcs@gmail.com
