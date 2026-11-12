@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+</head>
+
+<body>
+
+    <h1>Transaction History</h1>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Hour</th>
+            <th>Day</th>
+            <th>Month</th>
+            <th>Amount</th>
+            <th>Age</th>
+            <th>Category</th>
+            <th>State</th>
+            <th>Prediction</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for row in records %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>{{ row[8] }}</td>
+
+            <td>
+                <a href="{{ url_for('edit', id=row[0]) }}">Edit</a> |
+                <a href="{{ url_for('delete', id=row[0]) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+    <a href="{{ url_for('home') }}">Go Back</a>
+
+</body>
+</html>

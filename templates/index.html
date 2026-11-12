@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Fraud Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <center>
+        <img src="https://www.equentis.com/blog/wp-content/uploads/2023/03/Secure-your-account-from-UPI-frauds.jpg"
+             alt="UPI Security">
+    </center>
+
+    <div class="container">
+
+        <h2>UPI Fraud Detection System</h2>
+
+        <form action="/predict" method="post">
+
+            <label>Transaction Hour (0-23):</label>
+            <input type="number" name="trans_hour"
+                   min="0" max="23" required class="input-box">
+
+            <label>Transaction Day (1-31):</label>
+            <input type="number" name="trans_day"
+                   min="1" max="31" required class="input-box">
+
+            <label>Transaction Month (1-12):</label>
+            <input type="number" name="trans_month"
+                   min="1" max="12" required class="input-box">
+
+            <label>Transaction Amount:</label>
+            <input type="number" step="0.01" min="0.01"
+                   name="trans_amount" required class="input-box">
+
+            <label>Age:</label>
+            <input type="number" name="age"
+                   min="14" max="94" required class="input-box">
+
+            <label>Transaction Category (0-13):</label>
+            <input type="number" name="category"
+                   min="0" max="13" required class="input-box">
+
+            <label>State Code:</label>
+            <input type="number" name="state"
+                   min="0" max="50" required class="input-box">
+
+            <button type="submit" name="action" value="predict">
+                Predict
+            </button>
+
+            <br>
+
+            <button type="submit" name="action" value="submit">
+                Submit
+            </button>
+
+            <a href="{{ url_for('history') }}">View History</a>
+
+        </form>
+
+        {% if result %}
+        <div class="results {{ 'fraud' if result == 'Fraud' else 'not-fraud' }}">
+            <h3>{{ result }}</h3>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
